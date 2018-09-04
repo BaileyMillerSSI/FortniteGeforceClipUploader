@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfUploaderClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUploaderClient"
+        mc:Ignorable="d"
+        Title="Fortnite Auto Clip Uploader" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Upload Clips" Margin="10,10,9.8,0.4" Click="Manual_Upload_Clicked" Name="ManaulUploadClicked"/>
+
+    </Grid>
+</Window>

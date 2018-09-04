@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileCaptureLibrary", "FileCaptureLibrary\FileCaptureLibrary.csproj", "{12A156AD-CFD0-4C81-8861-25971DD42A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcherTester", "FileWatcherTester\FileWatcherTester.csproj", "{3707AB2B-42CE-4A99-AB06-EE78A3A1D125}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUploaderClient", "WpfUploaderClient\WpfUploaderClient.csproj", "{2997E418-F4AD-4131-A87A-51C6CB106E71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FortniteDetector", "FortniteDetector\FortniteDetector.csproj", "{6AC5B7C5-1017-4E14-A907-492548A54DFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12A156AD-CFD0-4C81-8861-25971DD42A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A156AD-CFD0-4C81-8861-25971DD42A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A156AD-CFD0-4C81-8861-25971DD42A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A156AD-CFD0-4C81-8861-25971DD42A46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3707AB2B-42CE-4A99-AB06-EE78A3A1D125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3707AB2B-42CE-4A99-AB06-EE78A3A1D125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3707AB2B-42CE-4A99-AB06-EE78A3A1D125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3707AB2B-42CE-4A99-AB06-EE78A3A1D125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2997E418-F4AD-4131-A87A-51C6CB106E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2997E418-F4AD-4131-A87A-51C6CB106E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2997E418-F4AD-4131-A87A-51C6CB106E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2997E418-F4AD-4131-A87A-51C6CB106E71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC5B7C5-1017-4E14-A907-492548A54DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC5B7C5-1017-4E14-A907-492548A54DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC5B7C5-1017-4E14-A907-492548A54DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC5B7C5-1017-4E14-A907-492548A54DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48FDA806-7220-4E1A-B6C2-4E801D6AE6B4}
+	EndGlobalSection
+EndGlobal

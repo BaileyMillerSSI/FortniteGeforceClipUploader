@@ -16,6 +16,9 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Button Content="Upload Clips" Margin="10,10,9.8,0.4" Click="Manual_Upload_Clicked" Name="ManaulUploadClicked"/>
+        <MediaElement Name="VideoPreview" Grid.Column="1" Margin="10.2,9.6,10.2,9.8" Grid.Row="1" LoadedBehavior="Manual"/>
+        <StackPanel Name="VideoList" Grid.Row="1"/>
+
 
     </Grid>
 </Window>

@@ -30,17 +30,6 @@ namespace WpfUploaderClient
         public MainWindow()
         {
             InitializeComponent();
-
-            _Database = new SqlServerLocalDB(SqlServerLocalDB.GetOrCreateDatabaseFile());
-
-            _Watcher = new FileWatcher(_Database);
-            
-            _Watcher.OnFileAdded += FileListUpdated;
-            _Watcher.OnFileRemoved += FileListUpdated;
-
-            _Watcher.StartWatching();
-
-            VideoPreview.MediaEnded += MediaEnded;
         }
 
         private void MediaEnded(object sender, RoutedEventArgs e)
@@ -105,6 +94,26 @@ namespace WpfUploaderClient
             var list = _Watcher.GetAllFiles();
             // Refresh List of Files
             Debug.WriteLine($"{list.Count()} files currently in watch.");
+        }
+
+        private async void WindowLoadComplete(object sender, RoutedEventArgs e)
+        {
+            await Task.Factory.StartNew(new Action(InitDataSources));
+        }
+
+
+        private void InitDataSources()
+        {
+            _Database = new SqlServerLocalDB(SqlServerLocalDB.GetOrCreateDatabaseFile());
+
+            _Watcher = new FileWatcher(_Database);
+
+            _Watcher.OnFileAdded += FileListUpdated;
+            _Watcher.OnFileRemoved += FileListUpdated;
+
+            _Watcher.StartWatching();
+
+            VideoPreview.MediaEnded += MediaEnded;
         }
     }
 }

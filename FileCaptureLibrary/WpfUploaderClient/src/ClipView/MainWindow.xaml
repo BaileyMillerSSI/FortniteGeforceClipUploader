@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUploaderClient"
         mc:Ignorable="d"
-        Title="Fortnite Auto Clip Uploader" Height="450" Width="800">
+        Title="Fortnite Auto Clip Uploader" Height="450" Width="800"
+        Loaded="WindowLoadComplete">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

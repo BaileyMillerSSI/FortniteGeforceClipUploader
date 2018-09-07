@@ -21,6 +21,8 @@ namespace DataAccess
             };
             Connection.ConnectionString = connBuilder.ConnectionString;
             Connection.Open();
+
+            EnsureDatabaseLayout();
         }
 
         private void EnsureDatabaseLayout()
@@ -29,16 +31,33 @@ namespace DataAccess
         }
 
 
-        public void InsertFile(FileInfo File)
+        public void InsertVideo(FileInfo File)
         {
+            
+        }
 
+        public List<object> GetVideos()
+        {
+            var vids = new List<object>();
+            var command = new SqlCommand("select Name, Length, Date from Videos", Connection);
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                vids.Add(new
+                {
+                    Name = reader.GetString(0),
+                    Length = reader.GetFloat(1),
+                    Date = reader.GetDateTime(2)
+                });
+            }
+
+            return vids;
         }
 
 
         public static String GetOrCreateDatabaseFile()
         {
-
-            var fileInfo = new DirectoryInfo(Environment.CurrentDirectory).GetFiles().Where(x => x.Name == "FileDB").SingleOrDefault();
+            var fileInfo = new DirectoryInfo(Environment.CurrentDirectory).GetFiles("*.*", SearchOption.AllDirectories).Where(x => x.Name == "FileDB.mdf").SingleOrDefault();
 
             if (fileInfo == null)
             {

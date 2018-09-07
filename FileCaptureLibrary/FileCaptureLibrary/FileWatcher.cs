@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -21,8 +22,13 @@ namespace FileCaptureLibrary
         
         private readonly FileSystemWatcher _Watcher;
 
-        public FileWatcher()
+        private readonly SqlServerLocalDB _Database;
+
+        public FileWatcher(SqlServerLocalDB DB)
         {
+
+            _Database = DB;
+
             WatchedFolder = LocateFortniteFolder(new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.MyVideos)));
 
 
@@ -77,6 +83,7 @@ namespace FileCaptureLibrary
 
             OnFileAdded?.Invoke(this, new FileInfo(e.FullPath));
 
+            AddOrUpdateFileInformation((new FileInfo(e.FullPath)));
         }
 
         private void FileCreated(object sender, FileSystemEventArgs e)
@@ -85,6 +92,8 @@ namespace FileCaptureLibrary
             CreatedFiles.Add(new FileInfo(e.FullPath));
 
             OnFileAdded?.Invoke(this, new FileInfo(e.FullPath));
+
+            AddOrUpdateFileInformation((new FileInfo(e.FullPath)));
         }
 
         private DirectoryInfo LocateFortniteFolder(DirectoryInfo BaseDirectory)
@@ -92,6 +101,15 @@ namespace FileCaptureLibrary
             var FortniteFolder = BaseDirectory.EnumerateDirectories().Where(x=>x.Name == "Fortnite").FirstOrDefault();
             
             return FortniteFolder ?? BaseDirectory;
+        }
+
+
+        private void AddOrUpdateFileInformation(FileInfo File)
+        {
+            if (_Database != null)
+            {
+                // Call code on Database
+            }
         }
 
         public void Dispose()

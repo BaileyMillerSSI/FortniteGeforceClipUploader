@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataAccess;
 
 namespace WpfUploaderClient
 {
@@ -24,13 +25,16 @@ namespace WpfUploaderClient
     public partial class MainWindow : Window
     {
         private FileWatcher _Watcher;
+        private SqlServerLocalDB _Database;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _Watcher = new FileWatcher();
+            _Database = new SqlServerLocalDB(SqlServerLocalDB.GetOrCreateDatabaseFile());
 
+            _Watcher = new FileWatcher(_Database);
+            
             _Watcher.OnFileAdded += FileListUpdated;
             _Watcher.OnFileRemoved += FileListUpdated;
 
@@ -48,6 +52,9 @@ namespace WpfUploaderClient
 
         private async void FileListUpdated(object sender, FileInfo File)
         {
+
+
+
             var list = _Watcher.GetAllFiles();
             // Refresh List of Files
             Debug.WriteLine($"{list.Count()} files currently in watch.");

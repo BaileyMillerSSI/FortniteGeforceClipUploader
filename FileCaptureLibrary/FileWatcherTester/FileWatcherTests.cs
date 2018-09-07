@@ -12,7 +12,7 @@ namespace FileWatcherTester
         [TestMethod]
         public void CanLocateFortniteFolder()
         {
-            FileWatcher watcher = new FileWatcher();
+            FileWatcher watcher = new FileWatcher(null);
             Assert.IsTrue(watcher.WatchedFolder.FullName == @"C:\Users\Bailey Miller\Videos\Fortnite");
             watcher.Dispose();
         }
@@ -20,7 +20,7 @@ namespace FileWatcherTester
         [TestMethod]
         public void CapturesFileEvents()
         {
-            using (var watcher = new FileWatcher())
+            using (var watcher = new FileWatcher(null))
             {
                 watcher.StartWatching();
 
